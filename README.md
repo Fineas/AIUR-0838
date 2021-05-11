@@ -30,7 +30,13 @@
 
 * program1: genedate data samples (`generate_samples.py`)
     - <img src="img/program1.jpeg" width="600px">
-* program2: controll robot (``)
+* program2: controll robot (`app_controller.py`)
     - <img src="img/program2.1.PNG" width="900px">
-* program3: train neuronal network (``)
+* program3: train neuronal network (`colab`)
+    - <a href="https://colab.research.google.com/drive/1gl4ZZTF66uqQOuVOxGaAYMsDkpUI2mAB#scrollTo=7SFT3mUiW4rK">https://colab.research.google.com/drive/1gl4ZZTF66uqQOuVOxGaAYMsDkpUI2mAB#scrollTo=7SFT3mUiW4rK</a>
+
 * program4: 
+
+
+* dataset:
+    - <a href="#">LINK</a>
