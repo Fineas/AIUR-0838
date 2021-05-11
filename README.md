@@ -16,27 +16,51 @@
 
 * Our Solution
 
-    - Create a custom language system based on human hand gestures which are recognized by a Trained Neuronal Network and put the robot in motion.
-    - <img src="img/language1.png" width="800px">
-    - <img src="img/language2.png" width="500px">
+    - Create a custom Hand Gesture System based on Human Hand Gestures which are recognized by a Trained Neuronal Network.
+    - Based on the gesture, instructions are sent to the robot in order to controll it.
+
+* Gesture System
+
+    - Hand Gesture **Movement** System 
+    <img src="img/language1.png" width="800px">
+    - Hand Gesture **Base Rotation & Gripper Controll** System <br>
+    <img src="img/language2.png" width="500px">
 
 * How it works
 
-    - First, the human interacting with the robot must specify via the `JOINT Identification Hand Gesture` table the joint it would like to move.
-    - Once the joint has been selected, the human can specify the rotation direction via the `SPIN left` or `SPIN right` gesture.
-    - When the desired position is reached, using the `STOP command`, the human can stop the rotation of the join and confirm that it is indeed the desired position via the `CONFIRM command`.
+    - First, the human interacting with the robot must specify via the `Hand Gesture Identification` table the direction in which the TCP will move.
+    - Once the gesture has been detected, using the `ur_library.py` library, instructions are sent to the robot which moves 1cm at a time in the given direction.
+    - To stop the movement, simply stop indicating the gesture.
+    - In order to rotate the base on a different direction, the `SPIN left/right` gesture from the `SPECIAL Commands` table must be used.
+    - In order to `CLOSE/OPEN gripper`, use the gestures presented in `SPECIAL Commands` table.
 
-## Introduction
+## Components
 
-* program1: genedate data samples (`generate_samples.py`)
-    - <img src="img/program1.jpeg" width="600px">
-* program2: controll robot (`app_controller.py`)
-    - <img src="img/program2.1.PNG" width="900px">
-* program3: train neuronal network (`colab`)
+* Component1: genedate data samples (`generate_samples.py`)
+    - <img src="img/program2.png" width="600px">
+    - Ussage: `python3 generate_samples.py`
+    - Scope: this program's purpose is to help the user create/expand a data set for the given gestures. Select a Gesture and then press `c` in order to capture the frame and save it under `train_data/images/categorizes/<gesture>` 
+
+* Component2: train neuronal network (`colab`)
     - <a href="https://colab.research.google.com/drive/1gl4ZZTF66uqQOuVOxGaAYMsDkpUI2mAB#scrollTo=7SFT3mUiW4rK">https://colab.research.google.com/drive/1gl4ZZTF66uqQOuVOxGaAYMsDkpUI2mAB#scrollTo=7SFT3mUiW4rK</a>
+    - Ussage: follow the steps as presented in the colab, then download the created model.
 
-* program4: 
+* Component3: object detection (`detect.py`)
+    - Ussage: used within **Component5**
+    - Scope: implement a continous detection loop on the given frame and return the results.
 
+* Component4: ur3e library (`ur_library.py`)
+    - Ussage: used within **Component5**
+    - Scope: 
 
-* dataset:
+* Component5: interactive GUI (`app_controller.py`)
+    - <img src="img/program2.1.PNG" width="900px">
+    - Ussage: `python3 app_controller.py`
+    - Scope: link all components into a clean interface which displays the input (video feed) and output (robot movement)
+
+* Component6: dataset (`LINK`)
     - <a href="#">LINK</a>
+
+## Requirements
+    - python-urx: v0.11.02 <a href="https://github.com/SintefManufacturing/python-urx">https://github.com/SintefManufacturing/python-urx</a>
+    - yolov5: <a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a>
