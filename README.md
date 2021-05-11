@@ -50,6 +50,7 @@
     - Scope: implement a continous detection loop on the given frame and return the results.
 
 * Component4: ur3e library (`ur_library.py`)
+    - <img src="img/ur_library_demo.gif" width="700px">
     - Ussage: used within **Component5**
     - Scope: 
 
