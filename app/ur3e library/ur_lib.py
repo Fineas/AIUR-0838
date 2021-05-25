@@ -21,6 +21,7 @@ class UR3_Robot:
         self.rob.set_tcp((0, 0, 0.1, 0, 0, 0))
         self.rob.set_payload(2, (0, 0, 0.1))
         self.socket = self.rob.secmon._s_secondary
+        print(self.socket)
 
         time.sleep(0.2)  #leave some time to poop
         
@@ -53,7 +54,7 @@ class UR3_Robot:
             print("Reached right-limit")
 
     def move_left(self):
-        if self.left_right + 1 <= 16:
+        if self.left_right + 1 <= 20:
             self.move_linear(0,-0.01,0,0,0,0)
             self.left_right += 1
         else:
@@ -131,6 +132,7 @@ class UR3_Robot:
         f = open (file_name, "rb")   #Robotiq Gripper
         l = f.read(1024)
         while (l):
+            print ('AAA')
             self.socket.send(l)
             l = f.read(1024)
         print("Finished uploading script")
@@ -157,14 +159,34 @@ class UR3_Robot:
 
             robot.move_direction(user_input.strip())
 
-# if __name__ == "__main__":  
-#     try:
-#         robot = UR3_Robot()
-#
-#         robot.terminate()
-#         print("COX TONY MONTANA JOS")
-#
-#         sys.exit(0)
-#     except:
-#         robot.terminate()
-#         sys.exit(1)
+if __name__ == "__main__":  
+    try:
+        robot = UR3_Robot()
+
+        # for i in range(20):
+        #     robot.move_direction('l')
+
+        # for i in range(17):
+        #     robot.move_direction('d')
+
+        # robot.move_direction('c')
+
+        # for i in range(17):
+        #     robot.move_direction('u')
+
+        # for i in range(20):
+        #     robot.move_direction('r')
+
+        # for i in range(16):
+        #     robot.move_direction('f')
+
+        # robot.move_direction('o')
+
+        robot.interactive()
+        robot.terminate()
+        print("COX TONY MONTANA JOS")
+
+        sys.exit(0)
+    except:
+        robot.terminate()
+        sys.exit(1)

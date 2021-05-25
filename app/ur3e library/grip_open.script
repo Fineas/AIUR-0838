@@ -1,5 +1,5 @@
 def gripper():
-#aliases for the gripper variable names
+    #aliases for the gripper variable names
   ACT = 1
   GTO = 2
   ATR = 3

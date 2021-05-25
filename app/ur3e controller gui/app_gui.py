@@ -109,7 +109,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
 
         # Create Robot instance
-        self.robot = ur_lib.UR3_Robot()
+        self.robot = ''
+        # self.robot = ur_lib.UR3_Robot()
 
         # Main Window Settings
         MainWindow.setObjectName("MainWindow")
@@ -244,6 +245,8 @@ class Ui_MainWindow(object):
         # update prompt txt based on detection
         data = self.thread.getDetectedLabel()
         if data and data != '0':
+            if data[::-1][0] == 's':
+                data = data[:len(data)-1] # strip s from end
             self.setPrompt(PROMPT_TXT[LABELS.index(data)+1])
             if data == "mov_up":
                 self.selectButton(self.pushButton)
@@ -269,6 +272,12 @@ class Ui_MainWindow(object):
             elif data == "spin_r":
                 self.selectButton(self.pushButton_8)
                 self.send_command("sr")
+            elif data == "gr_open":
+                self.selectButton(self.pushButton_8)
+                self.send_command("o")
+            elif data == "gr_close":
+                self.selectButton(self.pushButton_8)
+                self.send_command("c")
         else:
             # unselect buttons
             self.setPrompt(PROMPT_TXT[0])
@@ -276,8 +285,9 @@ class Ui_MainWindow(object):
                 self._in_use_btn.setStyleSheet("background-color: #e1e1e1")
     
     def send_command(self, CMD):
-        self.robot.move_direction(CMD)
-        pass
+        if self.robot:
+            self.robot.move_direction(CMD)
+            pass
 
     def convert_cv_qt(self, cv_img):
         rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
