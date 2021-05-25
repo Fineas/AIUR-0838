@@ -159,34 +159,34 @@ class UR3_Robot:
 
             robot.move_direction(user_input.strip())
 
-if __name__ == "__main__":  
-    try:
-        robot = UR3_Robot()
+# if __name__ == "__main__":  
+#     try:
+#         robot = UR3_Robot()
 
-        # for i in range(20):
-        #     robot.move_direction('l')
+#         # for i in range(20):
+#         #     robot.move_direction('l')
 
-        # for i in range(17):
-        #     robot.move_direction('d')
+#         # for i in range(17):
+#         #     robot.move_direction('d')
 
-        # robot.move_direction('c')
+#         # robot.move_direction('c')
 
-        # for i in range(17):
-        #     robot.move_direction('u')
+#         # for i in range(17):
+#         #     robot.move_direction('u')
 
-        # for i in range(20):
-        #     robot.move_direction('r')
+#         # for i in range(20):
+#         #     robot.move_direction('r')
 
-        # for i in range(16):
-        #     robot.move_direction('f')
+#         # for i in range(16):
+#         #     robot.move_direction('f')
 
-        # robot.move_direction('o')
+#         # robot.move_direction('o')
 
-        robot.interactive()
-        robot.terminate()
-        print("COX TONY MONTANA JOS")
+#         robot.interactive()
+#         robot.terminate()
+#         print("COX TONY MONTANA JOS")
 
-        sys.exit(0)
-    except:
-        robot.terminate()
-        sys.exit(1)
+#         sys.exit(0)
+#     except:
+#         robot.terminate()
+#         sys.exit(1)

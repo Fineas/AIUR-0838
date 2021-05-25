@@ -110,7 +110,7 @@ class Ui_MainWindow(object):
 
         # Create Robot instance
         self.robot = ''
-        # self.robot = ur_lib.UR3_Robot()
+        self.robot = ur_lib.UR3_Robot()
 
         # Main Window Settings
         MainWindow.setObjectName("MainWindow")
