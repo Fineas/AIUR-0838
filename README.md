@@ -62,6 +62,10 @@
 * Component6: dataset (`LINK`)
     - <a href="#">LINK</a>
 
+## DEMO
+
+[![demo](assets/cover.jpg)](https://www.youtube.com/watch?v=WvkPwQ9HKeQ)
+
 ## Requirements
 
 - python-urx: v0.11.02 <a href="https://github.com/SintefManufacturing/python-urx">https://github.com/SintefManufacturing/python-urx</a>
