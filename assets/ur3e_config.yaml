@@ -1,0 +1,5 @@
+train: ../train_data/images/train
+val: ../train_data/images/validate
+
+nc: 10
+names: ['mov_up', 'mov_dwn', 'mov_lft', 'mov_rght', 'mov_frt', 'mov_bck', 'spin_l', 'spin_r', 'gr_open', 'gr_close']
